@@ -1,0 +1,5 @@
+__pycache__
+.history
+venv
+web_copy_bot.session
+web_copy_bot.session-journal

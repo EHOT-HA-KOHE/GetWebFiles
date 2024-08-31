@@ -170,8 +170,11 @@ class CopyWeb:
 def clear_sites_folder(folder_path):
     # Проверяем, существует ли папка
     if not os.path.isdir(folder_path):
-        logger.error("Указанный путь не существует или не является папкой.")
-        return
+        try:
+            os.makedirs(folder_path)
+        except Exception as e:
+            logger.error(f"Не удалось создать папку '{folder_path}'. Ошибка: {e}")
+            return
 
     # Проходимся по всем объектам внутри папки
     for item_name in os.listdir(folder_path):
